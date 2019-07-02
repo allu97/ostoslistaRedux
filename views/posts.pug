@@ -1,0 +1,34 @@
+extends layout
+block content
+  .center.container
+    h1= title
+    if success
+      h2 Lisäys onnistunut!
+    else
+      if errors
+        ul
+          each virhe in errors
+            li= virhe.msg
+    ul
+    each post in post_list
+      form(method='POST' action='/posts/delete')
+        div.form-group
+          input#content.form-control(type='hidden',name='content', required='true', value=post.content)
+          li #{post.content}
+        button.btn.btn-primary(type='submit') Poista
+
+    else
+      li Ostoslista tyhjä.
+
+    h2 Lisää tavara ostoslistaan
+    form(method='POST' action='/posts/create')
+              div.form-group
+                label(for='content') Tavaran nimi:
+                input#content.form-control(type='text' name='content')
+              button.btn.btn-primary(type='submit') Lisää
+block footer
+  .page-footer
+    .footer-copyright
+      .container
+        span.left.blue-grey-text.text-lighten-3 Aleksi.Surakka@student.lut.fi
+        span.right.blue-grey-text.text-lighten-3 2019 &copy;

@@ -1,0 +1,19 @@
+body {
+  font-family: Arial;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  text-align: center;
+}
+main {
+  flex: 1 0 auto;
+}
+a {
+  color: #00B7FF;
+}
+h1 {
+  font-size: 48px;
+}
+h2 {
+  font-size: 32px;
+}
